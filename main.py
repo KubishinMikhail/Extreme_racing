@@ -1,15 +1,18 @@
 import pygame
 from main_car import MainCar
+from road import Road
 
 
 pygame.init()
 sprite_of_car = pygame.sprite.GroupSingle()
+road_sprites = pygame.sprite.Group()
 rotates = [pygame.image.load('pictures/main_car.png'),
            pygame.image.load('pictures/main_car_rotate_1.png'),
            pygame.image.load('pictures/main_car_rotate_2.png'),
            pygame.image.load('pictures/main_car_rotate_3.png'),
            pygame.image.load('pictures/main_car_rotate_4.png')]
-road = pygame.image.load('pictures/road.png')
+pictures = [pygame.image.load('pictures/tree.png'), pygame.image.load('pictures/line.png')]
+# road = pygame.image.load('pictures/road.png')
 
 
 if __name__ == '__main__':
@@ -20,19 +23,22 @@ if __name__ == '__main__':
     fps = 60
     clock = pygame.time.Clock()
 
+    road = Road(road_sprites, pictures)
     car = MainCar((350, 500), sprite_of_car)
+
     running = True
     pos = True
     count_of_frames = 0
 
     while running:
+        screen.fill((95, 169, 42))
         if count_of_frames:
             count_of_frames += 1
             sprite_of_car.update(pos, count_of_frames)
             if count_of_frames == 41:
                 count_of_frames = 0
-        screen.blit(road, (0, 0))
-        sprite_of_car.draw(screen)
+        # screen.blit(road, (0, 0))
+        # sprite_of_car.draw(screen)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -47,8 +53,11 @@ if __name__ == '__main__':
             if event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
                 car.run_left = False
                 car.run_right = True
-        sprite_of_car.draw(screen)
-        pygame.display.flip()
 
+        road_sprites.update()
+        road_sprites.draw(screen)
+        sprite_of_car.draw(screen)
+
+        pygame.display.flip()
         clock.tick(fps)
     pygame.quit()
