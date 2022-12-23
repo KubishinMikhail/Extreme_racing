@@ -1,6 +1,7 @@
 import pygame
 from main_car import MainCar
 from road import Road
+import random
 
 
 pygame.init()
