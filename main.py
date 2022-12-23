@@ -12,7 +12,6 @@ rotates = [pygame.image.load('pictures/main_car.png'),
            pygame.image.load('pictures/main_car_rotate_3.png'),
            pygame.image.load('pictures/main_car_rotate_4.png')]
 pictures = [pygame.image.load('pictures/tree.png'), pygame.image.load('pictures/line.png')]
-# road = pygame.image.load('pictures/road.png')
 
 
 if __name__ == '__main__':

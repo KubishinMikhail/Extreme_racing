@@ -7,7 +7,6 @@ rotates = [pygame.image.load('pictures/main_car.png'),
            pygame.image.load('pictures/main_car_rotate_3.png'),
            pygame.image.load('pictures/main_car_rotate_4.png')]
 main_car = rotates[0]
-# road = pygame.image.load('pictures/road.png')
 
 
 class MainCar(pygame.sprite.Sprite):
