@@ -24,7 +24,7 @@ if __name__ == '__main__':
     clock = pygame.time.Clock()
 
     road = Road(road_sprites, pictures)
-    car = MainCar((350, 500), sprite_of_car)
+    car = MainCar((400, 500), sprite_of_car)
 
     running = True
     pos = True
@@ -48,11 +48,13 @@ if __name__ == '__main__':
                 pos = event.key
                 count_of_frames = 1
             if event.type == pygame.KEYDOWN and event.key == pygame.K_LEFT:
-                car.run_left = True
-                car.run_right = False
+                if car.position_of_car != 200 and not car.car_rotate:
+                    car.run_left = True
+                    car.run_right = False
             if event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
-                car.run_left = False
-                car.run_right = True
+                if car.position_of_car != 600 and not car.car_rotate:
+                    car.run_left = False
+                    car.run_right = True
 
         road_sprites.update()
         road_sprites.draw(screen)
