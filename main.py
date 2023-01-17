@@ -15,7 +15,8 @@ rotates = [pygame.image.load('pictures/main_car.png'),
            pygame.image.load('pictures/main_car_rotate_4.png')]
 
 pictures = [pygame.image.load('pictures/tree.png'),
-            pygame.image.load('pictures/line.png')]
+            pygame.image.load('pictures/line.png'),
+            pygame.image.load('pictures/fuel.png')]
 
 cars_pictures = [pygame.image.load('pictures/car_1.png'),
                  pygame.image.load('pictures/car_2.png'),
@@ -30,8 +31,9 @@ if __name__ == '__main__':
 
     fps = 60
     clock = pygame.time.Clock()
+    speed = 10
 
-    road = Road(road_sprites, pictures, cars_pictures)
+    road = Road(road_sprites, pictures, cars_pictures, speed)
     car = MainCar((400, 500), sprite_of_car)
 
     running = False
@@ -79,17 +81,10 @@ if __name__ == '__main__':
                 if car.position_of_car != 600 and not car.car_rotate:
                     car.run_left = False
                     car.run_right = True
-
             if event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
-                if road.speed < 15:
-                    road.speed += 5
-                else:
-                    road.speed = 15
+                road.up_speed()
             if event.type == pygame.KEYDOWN and event.key == pygame.K_DOWN:
-                if road.speed > 5:
-                    road.speed -= 5
-                else:
-                    road.speed = 5
+                road.down_speed()
 
         road_sprites.update()
         road_sprites.draw(screen)
