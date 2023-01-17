@@ -13,7 +13,14 @@ rotates = [pygame.image.load('pictures/main_car.png'),
            pygame.image.load('pictures/main_car_rotate_2.png'),
            pygame.image.load('pictures/main_car_rotate_3.png'),
            pygame.image.load('pictures/main_car_rotate_4.png')]
-pictures = [pygame.image.load('pictures/tree.png'), pygame.image.load('pictures/line.png')]  #, pygame.image.load('pictures/fuel.png')]
+
+pictures = [pygame.image.load('pictures/tree.png'),
+            pygame.image.load('pictures/line.png')]
+
+cars_pictures = [pygame.image.load('pictures/car_1.png'),
+                 pygame.image.load('pictures/car_2.png'),
+                 pygame.image.load('pictures/car_3.png'),
+                 pygame.image.load('pictures/car_4.png')]
 
 
 if __name__ == '__main__':

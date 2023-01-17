@@ -1,5 +1,5 @@
 import pygame
-from random import randint
+from random import random, randint
 
 
 pygame.init()
@@ -8,16 +8,22 @@ pygame.init()
 class Road(pygame.sprite.Sprite):
     def __init__(self, road_sprites, pictures):
         super().__init__(road_sprites)
+
         self.road_sprites = road_sprites
+
         self.image = pygame.Surface([600, 1000])
         self.image.fill((73, 77, 78))
+
         pygame.draw.rect(self.image, 'white', (10, 0, 10, 1000))
         pygame.draw.rect(self.image, 'white', (580, 0, 10, 1000))
+
         self.rect = self.image.get_rect()
         self.rect.x = 100
         self.rect.y = 0
+
         self.create_tree = 0
         self.picture_tree = pictures[0]
+
         self.create_line = 0
         self.picture_line = pictures[1]
 
@@ -69,34 +75,3 @@ class Line(pygame.sprite.Sprite):
 
     def get_speed(self, speed):
         self.speed = speed
-
-
-# if __name__ == '__main__':
-#     pictures = [pygame.image.load('pictures/tree.png'), pygame.image.load('pictures/line.png')]
-#     size = width, height = 800, 1000
-#     screen = pygame.display.set_mode(size)
-#
-#     fps = 60
-#     clock = pygame.time.Clock()
-#
-#     road_sprites = pygame.sprite.Group()
-#     road = Road(road_sprites, pictures)
-#
-#     running = True
-#     pos = True
-#
-#     while running:
-#         screen.fill((95, 169, 42))
-#
-#         for event in pygame.event.get():
-#             if event.type == pygame.QUIT:
-#                 running = False
-#             if event.type == pygame.MOUSEBUTTONDOWN:
-#                 pass
-#
-#         road_sprites.update()
-#         road_sprites.draw(screen)
-#
-#         pygame.display.flip()
-#         clock.tick(fps)
-#     pygame.quit()
