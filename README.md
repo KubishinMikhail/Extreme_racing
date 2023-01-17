@@ -1,1 +1,1 @@
-# Extreme_racing
+# Игра Extreme racing (учебный проект)
