@@ -31,7 +31,7 @@ if __name__ == '__main__':
     fps = 60
     clock = pygame.time.Clock()
 
-    road = Road(road_sprites, pictures)
+    road = Road(road_sprites, pictures, cars_pictures)
     car = MainCar((400, 500), sprite_of_car)
 
     running = False
