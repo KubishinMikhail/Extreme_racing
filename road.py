@@ -71,3 +71,32 @@ class Line(pygame.sprite.Sprite):
         self.speed = speed
 
 
+# if __name__ == '__main__':
+#     pictures = [pygame.image.load('pictures/tree.png'), pygame.image.load('pictures/line.png')]
+#     size = width, height = 800, 1000
+#     screen = pygame.display.set_mode(size)
+#
+#     fps = 60
+#     clock = pygame.time.Clock()
+#
+#     road_sprites = pygame.sprite.Group()
+#     road = Road(road_sprites, pictures)
+#
+#     running = True
+#     pos = True
+#
+#     while running:
+#         screen.fill((95, 169, 42))
+#
+#         for event in pygame.event.get():
+#             if event.type == pygame.QUIT:
+#                 running = False
+#             if event.type == pygame.MOUSEBUTTONDOWN:
+#                 pass
+#
+#         road_sprites.update()
+#         road_sprites.draw(screen)
+#
+#         pygame.display.flip()
+#         clock.tick(fps)
+#     pygame.quit()
